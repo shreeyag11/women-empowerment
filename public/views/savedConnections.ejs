@@ -1,0 +1,32 @@
+<%- include('partials/header.ejs') %>
+		
+		<main>
+		<table class="table">
+			<tr> 
+				<th>Topic</th>
+				<th>Domain</th>
+				<th>Going?</th>
+				<th>Action</th>
+				
+			</tr>
+			<%if(userConnections.length == 0){ %>
+				<tr>
+					<td colspan="4">No Connections Found</td>
+				</tr>
+				<%} else { %>
+				<%for(var j=0; j < userConnections.length; j++){ %>	
+				<tr> 
+					<td><%= userConnections[j]._connection._conn_name %></td>
+					<td><%= userConnections[j]._connection._conn_topic %></td>
+					<td><%= userConnections[j]._rsvp %></td>
+					<td>
+					<form method="get">
+						<button type="submit" formaction="/connection/<%= userConnections[j]._connection._conn_id%>" class="btn btn-dark">Update</button>
+						<button type="submit" formaction="/myconnectionsDelete" name="connectionId" value="<%= userConnections[j]._connection._conn_id%>"	 class="btn btn-dark">Delete</button>
+					</form>
+				</td> </tr>
+			<% }} %>
+		</table>
+		</main>
+		
+<%- include('partials/footer.ejs') %>

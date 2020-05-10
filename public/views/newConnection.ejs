@@ -1,0 +1,33 @@
+<%- include('partials/header.ejs') %>
+        
+        <main>
+           
+            <form class="table" method="POST" action="/newConnection">
+                <div class="err">
+                    <% if(errors.length>0){ %>
+                        <ul>
+                       <% for(var i=0;i < errors.length ; i++){ %>
+                            <li> <%= errors[i].msg %> </li>
+                    <% } %>
+                        </ul>
+                <%}%>
+               </div>
+                <label for="topic">Topic:</label>
+                <input type="text" id="topic" name="topic" required><br><br>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br><br>
+                <label for="details">Details:</label>
+                <textarea id="details" name="details" rows="3" cols="20" required></textarea><br><br>
+                <label for="place">Where:</label>
+                <input type="text" id="place" name="place" required><br><br>
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required><br><br>
+                <label for="timeFrom">Time From:</label>
+                <input type="time" id="timeFrom" name="timeFrom" required><br><br>
+                <label for="timeTo">Time To:</label>
+                <input type="time" id="timeTo" name="timeTo" required><br><br>
+                <button type ="submit" value="connectionDetails" name=addConn>Create Connection</button>
+            </form> 
+        </main>
+            
+<%- include('partials/footer.ejs') %>

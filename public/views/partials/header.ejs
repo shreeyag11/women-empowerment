@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Empower Women</title>
+        <link href="/assets/stylesheets/style.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+<header>
+<div>
+   
+    <div class="header-main">
+        <div class="header-left">
+            <a href="/" class="title"><img src="/assets/images/logo.jpg" alt="Empower Women!" class="site-logo" width="150" height="100">Empower Women!</a>
+        </div>
+        <div class="header-right">
+            <ul class="header-ul">
+                <li class="header-li"><a href="/newConnection" class="color1">Start a new seminar</a></li>
+
+                <%if (typeof UserSession != 'undefined'){ %> 
+                    <li class="header-li"><a href="/myconnections" class="color1">My Connections</a></li>
+                    <li class="header-li"><a href="/signout" class="color1">Sign out</a></li>
+                <% } else {%> 
+                    <li class="header-li"><a href="/login" class="color1">Login</a></li>
+                    <li class="header-li"><a href="/login" class="color1">Sign up</a></li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+<hr>
+<div class="display">
+    <div class="connections">
+        <p><a href="/connections" class="color1">Seminars</a></p>		
+    </div>	
+    <%if (typeof UserSession == 'undefined'){ %>
+        <div class="user color1"><p>Welcome User!</p>
+    <% } else { %>
+    <div class="user color1"><p>Welcome <%= UserSession._user_fname %> </p>
+        <% } %>
+    </div>
+</div>	
+</div>
+</header>

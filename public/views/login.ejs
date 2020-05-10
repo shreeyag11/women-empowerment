@@ -1,0 +1,25 @@
+<%- include('partials/header.ejs') %>
+        
+        <main>
+            <form class="table" method="POST" action="/login">
+                <h2>Please enter your username and password to login!</h2>
+                <% if(errors.length>0){ %>
+                    <ul>
+                   <% for(var i=0;i < errors.length ; i++){ %>
+                        <li> <%= errors[i].msg %> </li>
+                <% } %>
+            <%}%>
+                <% if(valid){ %>
+                    <li>Username or Password incorrect. Please try again!</li>
+                <% } %>
+                </ul>
+                <br>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required><br><br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required><br><br>
+                <button type ="submit" >Login</button>
+            </form> 
+        </main>
+            
+<%- include('partials/footer.ejs') %>
